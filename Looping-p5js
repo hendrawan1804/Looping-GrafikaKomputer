@@ -1,0 +1,29 @@
+function setup() {
+  createCanvas(400, 400);
+  background(220);
+  
+  let gridSize = 5; // Jumlah pohon per baris dan kolom
+  let spacing = width / gridSize; // Jarak antar pohon
+  
+  // Menggambar pohon secara teratur dalam grid menggunakan perulangan for
+  for (let i = 0; i < gridSize; i++) { // Baris
+    for (let j = 0; j < gridSize; j++) { // Kolom
+      let x = j * spacing + spacing / 2;
+      let y = i * spacing + spacing / 2 + 30; // Tambahkan offset untuk penyesuaian vertikal
+      drawTree(x, y, 30); // Ukuran pohon tetap
+    }
+  }
+}
+
+// Fungsi untuk menggambar pohon
+function drawTree(x, y, size) {
+  // Batang pohon
+  fill(101, 67, 33);
+  rect(x - size / 10, y, size / 5, size);
+
+  // Daun pohon
+  fill(34, 139, 34);
+  ellipse(x, y - size / 2, size, size); // Daun bagian atas
+  ellipse(x - size / 3, y - size / 3, size, size); // Daun kiri
+  ellipse(x + size / 3, y - size / 3, size, size); // Daun kanan
+}
